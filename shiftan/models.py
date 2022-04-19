@@ -41,11 +41,15 @@ class Store(models.Model):
     address = models.CharField("住所",max_length=100, null=False, blank=False)
     phone = models.CharField("電話番号", max_length=15, null=False, blank=False)    # https://www.delftstack.com/ja/howto/django/django-phone-number-field/  このサイトのモジュール入れる予定
     store_ID = models.SlugField("店舗ID",max_length=50, unique=True, null=False, blank=False)    
+    create_time = models.DateTimeField("店舗作成時間",auto_now=True, auto_now_add=False)
+    update_time = models.DateTimeField("店舗情報更新時間",auto_now=False, auto_now_add=True)
 
 class Group(models.Model):
     Store_FK = models.ForeignKey(Store, on_delete=models.CASCADE)
     group_name = models.CharField("グループ名",max_length=50, null=False, blank=False)
     color = models.SlugField("グループカラー",max_length=100, null=False, blank=False)
+    create_time = models.DateTimeField("グループ作成時間",auto_now=True, auto_now_add=False)
+    update_time = models.DateTimeField("グループ更新時間",auto_now=False, auto_now_add=True)
 
 class User(AbstractBaseUser, PermissionsMixin):
     username_validator = UnicodeUsernameValidator() # validatorとは入力チェック
@@ -58,6 +62,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(_("active"), default=True) # ログインの可否
     is_manager = models.BooleanField("manager", default=False) # 店長かどうか
     date_joined = models.DateTimeField(_("date joined"), default=timezone.now) # アカウントの作成日時
+    update_time = models.DateTimeField("アカウント情報更新時間",auto_now=False, auto_now_add=True)
     last_name = models.CharField("名字", max_length=50, null=False, blank=False)
     first_name = models.CharField("名前", max_length=50, null=False, blank=False)
     phone = models.CharField("電話番号", max_length=15, null=False, blank=False)
@@ -114,3 +119,5 @@ class Schedule_Template(models.Model):
     user_FK = models.ForeignKey(User, on_delete=models.CASCADE)
     start_time = models.DateTimeField("シフトテンプレ開始時間",auto_now=False, auto_now_add=False)
     stop_time = models.DateTimeField("シフトテンプレ終了時間",auto_now=False, auto_now_add=False)
+    create_time = models.DateTimeField("シフトテンプレ作成時間",auto_now=True, auto_now_add=False)
+    update_time = models.DateTimeField("シフトテンプレ更新時間",auto_now=False, auto_now_add=True)
