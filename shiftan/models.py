@@ -59,8 +59,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField("名字", max_length=50, null=False, blank=False)
     first_name = models.CharField("名前", max_length=50, null=False, blank=False)
     phone = models.CharField("電話番号", max_length=15, null=False, blank=False)
-    store_FK = models.ForeignKey(Store, on_delete=models.SET_NULL, null=True)
-    group_FK = models.ForeignKey(Group, on_delete=models.SET_NULL, null=True)
+    store_FK = models.ForeignKey(Store, on_delete=models.SET_DEFAULT, default=" ", blank=True)
+    group_FK = models.ForeignKey(Group, on_delete=models.SET_DEFAULT,default=" " , blank=True)
+    is_store = models.BooleanField("店舗認証", default=False)
 
     objects = UserManager() # views.pyでUserモデルの情報を取得する際などで利用
     USERNAME_FIELD = "email" # ここをemailにすることでメールアドレスでのログインが可能になる
