@@ -91,8 +91,12 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
+    # 認証タイプ
     'AUTH_HEADER_TYPES': ('JWT',),
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
+    # アクセストークン(1時間)
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
+    # リフレッシュトークン(3日)
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=3)
 }
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
