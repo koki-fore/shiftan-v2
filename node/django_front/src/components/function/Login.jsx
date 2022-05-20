@@ -13,6 +13,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SimpleNavbar from './SimpleNavbar'
 import NewAccountButton from './NewAccountButton';
 import { Link as routerLink } from 'react-router-dom'
+import PostData from './PostData';
 
 function Copyright(props) {
   return (
@@ -87,6 +88,7 @@ export default function Login() {
               sx={{ mt: 3, mb: 2 }}
               component={routerLink}
               to="/"
+              onClick={() => PostData(email, password)}
             >
               ログイン
             </Button>
