@@ -86,9 +86,7 @@ export default function Login() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              component={routerLink}
-              to="/"
-              onClick={() => PostData(email, password)}
+              onClick={() => PostData("nineteen20211113@gmail.com", "programing8895")}
             >
               ログイン
             </Button>
