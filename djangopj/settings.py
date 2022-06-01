@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api.apps.ApiConfig',
     'rest_framework',
+    'rest_framework.authtoken',
     'djoser',
     'corsheaders',
 ]
@@ -81,19 +82,42 @@ TEMPLATES = [
 WSGI_APPLICATION = 'djangopj.wsgi.application'
 
 REST_FRAMEWORK = {
+    # 認証が必要
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
         
     ],
+    # JWT認証
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
 
 SIMPLE_JWT = {
+    # 認証タイプ
     'AUTH_HEADER_TYPES': ('JWT',),
+    # アクセストークン有効期限
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
+    # リフレッシュトークン有効期限
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=3),
+    # 認証トークン
+    'AUTH_TOKEN_CLASSES':('rest_framework_simplejwt.tokens.AccessToken',)
 }
+
+DJOSER = {
+    # メールアドレスでログイン
+    'LOGIN_FIELD': 'email',
+    # アカウント本登録メール
+    'SEND_ACTIVATION_EMAIL': True,
+    # アカウント本登録完了メール
+    'SEND_CONFIRMATION_EMAIL': True,
+    # パスワード変更完了メール
+    'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
+    
+
+
+}
+
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -147,3 +171,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# ローカル確認用
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# 本番環境用 (gmail)
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'xxx@gmail.com'
+EMAIL_HOST_PASSWORD = 'xxx'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'xxx@gmail.com'
