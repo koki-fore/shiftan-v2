@@ -27,7 +27,7 @@ const App = () => {
       <Routes>
 
         <Route element={<PrivateRoutes />}>
-          <Route path="/" element={<Navbar contents={<StoreHome />}/>} exact/> {/* exact ... 部分一致を防ぐ */}
+          <Route path="/" element={<Navbar contents={<StoreHome />}/>} /> {/* exact ... 部分一致を防ぐ */}
           
           <Route path="sentPasswordMail" element={<SentPasswordMail />} />
 
