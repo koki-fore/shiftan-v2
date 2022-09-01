@@ -116,7 +116,7 @@ const MakeShift = () => {
             setEndValueErrorMessage("");
         }
 
-        if (shiftName == null|| shiftName == "" ||startValue==null||endValue==null||startValue>endValue)return(false)
+        if (shiftName == null || shiftName=="" || startValue==null || endValue==null || startValue>endValue)return(false)
         else return(true)
     }
 
