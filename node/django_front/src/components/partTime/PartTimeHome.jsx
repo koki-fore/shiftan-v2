@@ -64,11 +64,13 @@ export default function PartTimeHome() {
 
         });
   }, []);
-  if (!users || !ranges) return null;
+  if (!users) return null;
   // 店長アカウントははじく
   else if (users.is_manager === true) {
     return navigate("/*")
-  }else if(ranges.length === 0){
+  }
+  if (!ranges) return null;
+  else if(ranges.length === 0){
     return(
       <Grid container spacing={0} alignItems='center' justifyContent='center' direction="column" style={{ minHeight: '100vh' }}>
                 <Grid item xs={12}>
