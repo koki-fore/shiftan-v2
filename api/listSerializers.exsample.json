@@ -1,0 +1,79 @@
+// シフト範囲が9月1日から9月4日までのとき
+
+[
+    {
+      user_id: 1,
+      dates: [
+        {
+          date: "2022-09-01",
+          start_time: "19:00",
+          end_time: "22:00"
+        },
+        {
+          date: "2022-09-02",
+          start_time: null,
+          end_time: null
+        },
+        {
+          date: "2022-09-03",
+          start_time: "19:00",
+          end_time: "22:00"
+        },
+        {
+          date: "2022-09-04",
+          start_time: "19:00",
+          end_time: "22:00"
+        },
+      ]
+    },
+    {
+      user_id: 2,
+      dates: [
+        {
+          date: "2022-09-01",
+          start_time: null,
+          end_time: null
+        },
+        {
+          date: "2022-09-02",
+          start_time: "19:00",
+          end_time: "22:00"
+        },
+        {
+          date: "2022-09-03",
+          start_time: null,
+          end_time: null
+        },
+        {
+          date: "2022-09-04",
+          start_time: "19:00",
+          end_time: "22:00"
+        },
+      ]
+    },
+    {
+      user_id: 3,
+      dates: [
+        {
+          date: "2022-09-01",
+          start_time: "19:00",
+          end_time: "22:00"
+        },
+        {
+          date: "2022-09-02",
+          start_time: "19:00",
+          end_time: "22:00"
+        },
+        {
+          date: "2022-09-03",
+          start_time: "19:00",
+          end_time: "22:00"
+        },
+        {
+          date: "2022-09-04",
+          start_time: "19:00",
+          end_time: "22:00"
+        },
+      ]
+    }
+  ]
