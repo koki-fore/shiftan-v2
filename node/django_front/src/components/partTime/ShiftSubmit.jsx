@@ -180,10 +180,10 @@ export default function ShiftSubmit() {
             <Table aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell>日付</TableCell>
-                  <TableCell align="right">開始時刻</TableCell>
-                  <TableCell align="right">終了時刻</TableCell>
-                  <TableCell align="right">勤務</TableCell>
+                  <TableCell align='center'>日付</TableCell>
+                  <TableCell align="center">開始時刻</TableCell>
+                  <TableCell align="center">終了時刻</TableCell>
+                  <TableCell align="center">勤務</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
